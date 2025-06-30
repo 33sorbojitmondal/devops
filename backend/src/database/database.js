@@ -53,16 +53,21 @@ async function initializeDatabase() {
 
 // Close database connection
 function closeDatabase() {
-  if (db) {
-    db.close((err) => {
-      if (err) {
-        console.error('Error closing database:', err);
-      } else {
-        console.log('Database connection closed');
-      }
-    });
-    db = null;
-  }
+  return new Promise((resolve) => {
+    if (db) {
+      db.close((err) => {
+        if (err) {
+          console.error('Error closing database:', err);
+        } else {
+          console.log('Database connection closed');
+        }
+        db = null;
+        resolve();
+      });
+    } else {
+      resolve();
+    }
+  });
 }
 
 // Database operations

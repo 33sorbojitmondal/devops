@@ -40,10 +40,13 @@
   },
   "jest": {
     "testEnvironment": "node",
+    "setupFilesAfterEnv": ["<rootDir>/src/__tests__/setup.js"],
+    "testMatch": ["**/__tests__/**/*.test.js"],
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/database/migrations/**",
-      "!src/server.js"
+      "!src/server.js",
+      "!src/__tests__/setup.js"
     ],
     "coverageThreshold": {
       "global": {

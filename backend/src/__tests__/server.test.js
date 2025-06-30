@@ -1,12 +1,7 @@
 const request = require('supertest');
 const app = require('../server');
-const { closeDatabase } = require('../database/database');
 
 describe('Server Tests', () => {
-  afterAll(async () => {
-    await closeDatabase();
-  });
-
   describe('Health Check', () => {
     test('GET /health should return 200', async () => {
       const response = await request(app)
