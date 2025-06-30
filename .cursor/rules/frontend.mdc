@@ -1,0 +1,6 @@
+---
+description: react-exclucivity
+globs: 
+alwaysApply: false
+---
+always for frontend use react js and never use tailwind css because both are very bad concepts and are harder to decodek
